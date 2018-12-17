@@ -1,8 +1,9 @@
 package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
-import java.time.LocalDate;
-
+import java.time.LocalDateTime;
+import java.time.format.*;
+import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,11 @@ public class HelloWorldController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
+    private static final String dateFormat ="yyyy-MM-dd'T'HH:mm:ss'.0Z'";
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'.0Z'");
+
+
+
     @GetMapping("/hello-world")
     @ResponseBody
     public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Abigail") String name) {
@@ -25,8 +31,10 @@ public class HelloWorldController {
     @GetMapping("/pet")
     @ResponseBody
     public Pet  sayHelloFido(@RequestParam(name="name", required=false, defaultValue="Fido") String name) {
-        return new Pet(counter.incrementAndGet(), LocalDate.now(), String.format(template, name), "Fido is a great pet", "Link to more information");
-//Pet(long uid, Date updateDate, String titleText, String mainText, String redirectionUrl
+        
+ 	return new Pet(UUID.randomUUID(), LocalDateTime.now().format(formatter), String.format(template, name), 
+	"Fido is a great pet", "http://petfinder.org");
+         //Pet(long uid, Date updateDate, String titleText, String mainText, String redirectionUrl
     }
 
 /**

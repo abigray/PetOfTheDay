@@ -1,6 +1,8 @@
 package hello;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 
 /**
  * A POJO for pet inforamtion used to generate a response for an Alexa Flash Briefing
@@ -18,13 +20,13 @@ import java.time.LocalDate;
  */
 public class Pet {
 
-    private final long uid;
-    private final LocalDate updateDate;
+    private final UUID uid;
+    private final String updateDate;
     private final String titleText;
     private final String mainText;
     private final String redirectionUrl;
 
-    public Pet(long uid, LocalDate updateDate, String titleText, String mainText, String redirectionUrl ) {
+    public Pet(UUID uid, String updateDate, String titleText, String mainText, String redirectionUrl ) {
         this.uid = uid;
         this.updateDate = updateDate;
 	this.titleText = titleText;
@@ -32,11 +34,11 @@ public class Pet {
         this.redirectionUrl = redirectionUrl;
     }
 
-    public long getUid() {
+    public UUID getUid() {
         return uid;
     }
 
-    public LocalDate getUpdateDate() {
+    public String getUpdateDate() {
         return updateDate;
     }
 
