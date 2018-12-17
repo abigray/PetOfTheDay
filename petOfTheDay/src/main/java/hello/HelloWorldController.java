@@ -1,6 +1,8 @@
 package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.time.LocalDate;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +24,9 @@ public class HelloWorldController {
 
     @GetMapping("/pet")
     @ResponseBody
-    public Greeting sayHelloFido(@RequestParam(name="name", required=false, defaultValue="Fido") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    public Pet  sayHelloFido(@RequestParam(name="name", required=false, defaultValue="Fido") String name) {
+        return new Pet(counter.incrementAndGet(), LocalDate.now(), String.format(template, name), "Fido is a great pet", "Link to more information");
+//Pet(long uid, Date updateDate, String titleText, String mainText, String redirectionUrl
     }
 
 /**
