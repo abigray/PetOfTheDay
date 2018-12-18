@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.format.*;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +22,7 @@ public class HelloWorldController {
     private static final String dateFormat ="yyyy-MM-dd'T'HH:mm:ss'.0Z'";
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'.0Z'");
 
+    private final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
 
 
     @GetMapping("/hello-world")
@@ -31,7 +35,7 @@ public class HelloWorldController {
     @GetMapping("/pet")
     @ResponseBody
     public Pet  sayHelloFido(@RequestParam(name="name", required=false, defaultValue="Fido") String name) {
-        
+        logger.info("Woof");         
  	return new Pet(UUID.randomUUID(), LocalDateTime.now().format(formatter), String.format(template, name), 
 	"Fido is a great pet", "http://petfinder.org");
          //Pet(long uid, Date updateDate, String titleText, String mainText, String redirectionUrl
