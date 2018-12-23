@@ -20,13 +20,13 @@ import java.util.UUID;
  */
 public class Pet {
 
-    private final UUID uid;
+    private final String uid;
     private final String updateDate;
     private final String titleText;
     private final String mainText;
     private final String redirectionUrl;
 
-    public Pet(UUID uid, String updateDate, String titleText, String mainText, String redirectionUrl ) {
+    public Pet(String uid, String updateDate, String titleText, String mainText, String redirectionUrl ) {
         this.uid = uid;
         this.updateDate = updateDate;
 	this.titleText = titleText;
@@ -34,7 +34,7 @@ public class Pet {
         this.redirectionUrl = redirectionUrl;
     }
 
-    public UUID getUid() {
+    public String getUid() {
         return uid;
     }
 

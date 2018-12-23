@@ -19,7 +19,7 @@ public class HelloWorldController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    private static final String dateFormat ="yyyy-MM-dd'T'HH:mm:ss'.0Z'";
+   //private static final String dateFormat ="yyyy-MM-dd'T'HH:mm:ss'.0Z'";
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'.0Z'");
 
     private final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
@@ -36,9 +36,8 @@ public class HelloWorldController {
     @ResponseBody
     public Pet  sayHelloFido(@RequestParam(name="name", required=false, defaultValue="Fido") String name) {
         logger.info("Woof");         
- 	return new Pet(UUID.randomUUID(), LocalDateTime.now().format(formatter), String.format(template, name), 
-	"Fido is a great pet", "http://petfinder.org");
-         //Pet(long uid, Date updateDate, String titleText, String mainText, String redirectionUrl
+ 	return new Pet(UUID.randomUUID().toString(), LocalDateTime.now().format(formatter), String.format(template, name), 
+	"woof", "");
     }
 
 /**
