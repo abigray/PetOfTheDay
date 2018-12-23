@@ -1,4 +1,4 @@
-package hello;
+package pet;
 
 import java.util.concurrent.atomic.AtomicLong;
 import java.time.LocalDateTime;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HelloWorldController {
+public class PetController {
 
     private static final String template = "Your pet of the day is %s!";
     private static final String redirectUrl = "http://petfinder.org";
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'.0Z'");
-    private final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
+    private final Logger logger = LoggerFactory.getLogger(PetController.class);
 
 
     @GetMapping("/pet")

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package hello;
+package pet;
 
 import java.util.Map;
 
@@ -32,14 +32,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.BDDAssertions.then;
 
 /**
- * Basic integration tests for service demo application.
+ * Basic integration tests 
  *
- * @author Dave Syer
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = {"management.port=0"})
-public class HelloWorldApplicationTests {
+public class PetApplicationTests {
 
 	@LocalServerPort
 	private int port;
