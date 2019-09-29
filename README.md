@@ -1,7 +1,7 @@
 Pet of the day returns a flash briefing feed formatted for Alexa.
 
 
-##Setup
+## Setup
 
 ### Create a new EC2 instance
 
