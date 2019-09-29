@@ -25,4 +25,4 @@ Using port 80 seems to be  an undocumented requirement for Alexa flash briefing 
     java -jar target/petOfTheDay-0.1.0.jar  
 
 ### That's it!  
-You can access your feed at http://<your ec2 instance>.amazonaws.com/pet
+You can access your feed at http://your ec2 instance.amazonaws.com/pet
